@@ -33,7 +33,9 @@ $uncharted->vote = 5;
 var_dump($uncharted);
 
 $crashBandicoot = new Games('Crash Bandicoot', 26.90, 10, 'XBOX');
-$crashBandicoot->vote = 5;
+$crashBandicoot->vote = 4;
 var_dump($crashBandicoot);
+var_dump($crashBandicoot->getPrice());
+var_dump($crashBandicoot->getVote());
 
 ?>
