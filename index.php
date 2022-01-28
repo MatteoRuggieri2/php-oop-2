@@ -43,12 +43,10 @@ $john = new Customer('John', 'Verdi', 'john.verdi@gmail.it', '6548965');
 $allUsers[] = $john;
 $john->toBuy($mouse);
 $john->toBuy($keyboard);
-// var_dump($john);
 
 $gianni = new Manager('Gianni', 'Bianchi', 'gianni.bianchi@gmail.it', '4985664', 'Junior');
 $allUsers[] = $gianni;
 $gianni->toBuy($crashBandicoot);
-// var_dump($gianni);
 
 $piero = new Manager('Piero', 'Rossi', 'piero.rossi@gmail.it', '9876653', 'Senior');
 $allUsers[] = $piero;
@@ -56,10 +54,6 @@ $piero->toBuy($tshirt);
 $piero->toBuy($jeans);
 $piero->toBuy($keyboard);
 $piero->toBuy($uncharted);
-// var_dump($piero);
-
-var_dump($allUsers);
-
 
 ?>
 
