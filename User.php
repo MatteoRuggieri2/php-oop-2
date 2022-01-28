@@ -24,7 +24,7 @@ class User {
     }
 
     public function toBuy($item) {
-        $this->$basket[] = $item;
+        $this->basket[] = $item;
     }
 
     public function getBasket() {
