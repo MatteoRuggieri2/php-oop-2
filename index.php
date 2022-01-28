@@ -37,18 +37,29 @@ $crashBandicoot->vote = 4;
 
 
 // USERS
+$allUsers = [];
+
 $john = new Customer('John', 'Verdi', 'john.verdi@gmail.it', '6548965');
+$allUsers[] = $john;
 $john->toBuy($mouse);
 $john->toBuy($keyboard);
+// var_dump($john);
 
 $gianni = new Manager('Gianni', 'Bianchi', 'gianni.bianchi@gmail.it', '4985664', 'Junior');
+$allUsers[] = $gianni;
 $gianni->toBuy($crashBandicoot);
+// var_dump($gianni);
 
 $piero = new Manager('Piero', 'Rossi', 'piero.rossi@gmail.it', '9876653', 'Senior');
+$allUsers[] = $piero;
 $piero->toBuy($tshirt);
 $piero->toBuy($jeans);
 $piero->toBuy($keyboard);
 $piero->toBuy($uncharted);
+// var_dump($piero);
+
+var_dump($allUsers);
+
 
 ?>
 
@@ -64,38 +75,21 @@ $piero->toBuy($uncharted);
     <main>
         <h1>Utenti che hanno acquistato oggi:</h1>
         <ul>
-            <li>
-                <h3>John Verdi</h3>
-                <h4>Metodo di pagamento: carta</h4>
-                <h4>Oggetti acquistati:</h4>
-                <ul>
-                    <?php foreach($john->getBasket() as $product) { ?>
-                        <li><?php echo $product->name ?></li>
-                    <?php } ?>
-                </ul>
-            </li>
+            
+            <!-- Stampo per ogni utente le info di acquisto -->
+            <?php foreach($allUsers as $singleUser) { ?>
+                <li>
+                    <h3><?php echo $singleUser->getName() ?></h3>
+                    <h4>Metodo di pagamento: carta</h4>
+                    <h4>Oggetti acquistati:</h4>
+                    <ul>
+                        <?php foreach($singleUser->getBasket() as $product) { ?>
+                            <li><?php echo $product->name ?></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+            <?php } ?>
 
-            <li>
-                <h3>Gianni Bianchi</h3>
-                <h4>Metodo di pagamento: carta</h4>
-                <h4>Oggetti acquistati:</h4>
-                <ul>
-                    <?php foreach($gianni->getBasket() as $product) { ?>
-                        <li><?php echo $product->name ?></li>
-                    <?php } ?>
-                </ul>
-            </li>
-
-            <li>
-                <h3>Piero Rossi</h3>
-                <h4>Metodo di pagamento: carta</h4>
-                <h4>Oggetti acquistati:</h4>
-                <ul>
-                    <?php foreach($piero->getBasket() as $product) { ?>
-                        <li><?php echo $product->name ?></li>
-                    <?php } ?>
-                </ul>
-            </li>
         </ul>
     </main>
 </body>
