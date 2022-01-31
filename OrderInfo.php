@@ -9,12 +9,6 @@ trait OrderInfo {
 
     public $totalPrice;
 
-
-
-    public function getOrderDate() {
-        $this->orderDate = 'oggi';
-    }
-
 }
 
 ?>

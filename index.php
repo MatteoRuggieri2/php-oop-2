@@ -84,7 +84,7 @@ $piero->toBuy($uncharted);
             <?php foreach($allUsers as $singleUser) { ?>
                 <li>
                     <h2><?php echo $singleUser->getName() ?></h2>
-                    <h4>Ordine effettuato il: [data]</h4>
+                    <h4>Ordine effettuato il: <?php echo $singleUser->orderDate ?></h4>
                     <h4>Metodo di pagamento: carta</h4>
                     <h4>Oggetti acquistati:</h4>
                     <ul>
@@ -92,6 +92,7 @@ $piero->toBuy($uncharted);
                             <li><?php echo $product->name ?></li>
                         <?php } ?>
                     </ul>
+                    <h3>Totale: <?php echo $singleUser->totalBasketPrice() ?></h3>
                 </li>
             <?php } ?>
             

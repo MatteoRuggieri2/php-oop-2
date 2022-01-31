@@ -33,11 +33,22 @@ class User {
     }
 
     public function toBuy($item) {
+        $this->orderDate = date("d/m/Y");
         $this->basket[] = $item;
     }
 
     public function getBasket() {
         return $this->basket;
+    }
+
+    public function totalBasketPrice() {
+        $totalPrice = 0;
+
+        foreach($this->basket as $singleProduct) {
+            $totalPrice += $singleProduct->price;
+        }
+        
+        return $totalPrice . ' ' . '€';
     }
 
     // public function encryptCreditCard() {
