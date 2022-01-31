@@ -24,9 +24,9 @@ $mouse->vote = 4;
 
 $keyboard = new TechItem('Corsair K70 RGB MK.2', 179.99, 75);
 
-$jeans = new Clothes('Levis', 89.99, 10, 'XL');
+$jeans = new Clothes('Jeans Levis', 89.99, 10, 'XL');
 
-$tshirt = new Clothes('Nike', 39.99, 15, 'L');
+$tshirt = new Clothes('T-shirt Nike', 39.99, 15, 'L');
 $tshirt->vote = 5;
 
 $uncharted = new Games('Uncharted - La fine di un ladro', 29.00, 7, 'PS4');
@@ -40,20 +40,22 @@ $crashBandicoot->vote = 4;
 $allUsers = [];
 
 $john = new Customer('John', 'Verdi', 'john.verdi@gmail.it', '6548965');
-$allUsers[] = $john;
+$allUsers[] = $john;    // Aggiungo l'utente nella lista degli acquirenti
 $john->toBuy($mouse);
 $john->toBuy($keyboard);
 
 $gianni = new Manager('Gianni', 'Bianchi', 'gianni.bianchi@gmail.it', '4985664', 'Junior');
-$allUsers[] = $gianni;
+$allUsers[] = $gianni;    // Aggiungo l'utente nella lista degli acquirenti
 $gianni->toBuy($crashBandicoot);
 
 $piero = new Manager('Piero', 'Rossi', 'piero.rossi@gmail.it', '9876653', 'Senior');
-$allUsers[] = $piero;
+$allUsers[] = $piero;    // Aggiungo l'utente nella lista degli acquirenti
 $piero->toBuy($tshirt);
 $piero->toBuy($jeans);
 $piero->toBuy($keyboard);
 $piero->toBuy($uncharted);
+
+var_dump($piero);
 
 ?>
 
@@ -73,7 +75,8 @@ $piero->toBuy($uncharted);
             <!-- Stampo per ogni utente le info di acquisto -->
             <?php foreach($allUsers as $singleUser) { ?>
                 <li>
-                    <h3><?php echo $singleUser->getName() ?></h3>
+                    <h2><?php echo $singleUser->getName() ?></h2>
+                    <h4>Ordine effettuato il</h4>
                     <h4>Metodo di pagamento: carta</h4>
                     <h4>Oggetti acquistati:</h4>
                     <ul>

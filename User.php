@@ -1,6 +1,10 @@
 <?php 
 
+require_once __DIR__ . '/OrderInfo.php';
+
 class User {
+    
+    use OrderInfo;
 
     public $name;
 
@@ -28,8 +32,22 @@ class User {
     }
 
     public function getBasket() {
+        $this->orderDate = getOrderDate();
         return $this->basket;
     }
+
+    // public function encryptCreditCard() {
+    //     $showedCharacters = 3;
+    //     $stringLenght = strlen($this->creditCard);
+    //     // $encriptedCreditCard = substr_replace( $this->creditCard, '*', -1);
+    //     $charactersToReplace = $stringLenght - $showedCharacters;
+    //     $encriptedCreditCard = 
+    //     return $encriptedCreditCard;
+
+    //     for($i = 0, $i < $showedCharacters, $i++) {
+
+    //     }
+    // }
 
 }
 
