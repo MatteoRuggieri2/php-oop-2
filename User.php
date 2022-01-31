@@ -20,7 +20,12 @@ class User {
         $this->name = $_name;
         $this->lastname = $_lastname;
         $this->email = $_email;
-        $this->creditCard = $_creditCard;
+
+        if(is_numeric($_creditCard)) {
+            $this->creditCard = $_creditCard;
+        } else {
+            throw new Exception('$_creditCard deve essere un numero');
+        }
     }
 
     public function getName() {
@@ -32,7 +37,6 @@ class User {
     }
 
     public function getBasket() {
-        $this->orderDate = getOrderDate();
         return $this->basket;
     }
 

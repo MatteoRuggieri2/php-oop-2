@@ -39,7 +39,17 @@ $crashBandicoot->vote = 4;
 // USERS
 $allUsers = [];
 
-$john = new Customer('John', 'Verdi', 'john.verdi@gmail.it', '6548965');
+try {
+    $john = new Customer('John', 'Verdi', 'john.verdi@gmail.it', '6548965');
+} catch(Exception $e) {
+    
+    // Scrivo nel file di log.
+    error_log($e);
+
+    // Scrivo un messaggio in pagina
+    echo '<h2>Abbiamo riscontrato un problema nei nostri server. Torneremo al più presto.</h2>';
+    die();
+}
 $allUsers[] = $john;    // Aggiungo l'utente nella lista degli acquirenti
 $john->toBuy($mouse);
 $john->toBuy($keyboard);
@@ -54,8 +64,6 @@ $piero->toBuy($tshirt);
 $piero->toBuy($jeans);
 $piero->toBuy($keyboard);
 $piero->toBuy($uncharted);
-
-var_dump($piero);
 
 ?>
 
@@ -76,7 +84,7 @@ var_dump($piero);
             <?php foreach($allUsers as $singleUser) { ?>
                 <li>
                     <h2><?php echo $singleUser->getName() ?></h2>
-                    <h4>Ordine effettuato il</h4>
+                    <h4>Ordine effettuato il: [data]</h4>
                     <h4>Metodo di pagamento: carta</h4>
                     <h4>Oggetti acquistati:</h4>
                     <ul>
@@ -86,7 +94,7 @@ var_dump($piero);
                     </ul>
                 </li>
             <?php } ?>
-
+            
         </ul>
     </main>
 </body>

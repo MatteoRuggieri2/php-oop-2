@@ -12,8 +12,9 @@ trait OrderInfo {
 
 
     public function getOrderDate() {
-        return date("d/m/Y");
+        $this->orderDate = 'oggi';
     }
+
 }
 
 ?>
