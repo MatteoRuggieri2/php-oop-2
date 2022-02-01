@@ -47,7 +47,7 @@ class User {
         foreach($this->basket as $singleProduct) {
             $totalPrice += $singleProduct->price;
         }
-        
+        $totalPrice = number_format( $totalPrice, 2);
         return $totalPrice . ' ' . '€';
     }
 

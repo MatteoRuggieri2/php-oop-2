@@ -7,7 +7,7 @@ trait OrderInfo {
 
     public $numberOfProduct;
 
-    public $totalPrice;
+    private $totalPrice;
 
 }
 
